@@ -35,9 +35,9 @@ namespace WebAPI.Models
 
         public string Ad_Surname { get; set; }
 
-        public string Ad_Email_Address { get; set; }
+        public string Ad_EmailAddress { get; set; }
 
-        public int Ad_Cell_Number { get; set; }
+        public int Ad_CellNumber { get; set; }
 
         public string Ad_Password { get; set; }
 

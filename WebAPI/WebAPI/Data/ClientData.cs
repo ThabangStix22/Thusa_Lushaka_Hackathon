@@ -9,7 +9,28 @@ namespace WebAPI.Data
 
         public int CreateClient(Client client)
         {
-            throw new NotImplementedException();
+            int control = -2;
+
+            Client existClient = _con.OpenConnection().QueryFirstOrDefault<Client>(
+                $"SELECT * " +
+                $"FROM dbo.Client" +
+                $"WHERE CL_IdNumber = {client.CL_IdNumber} ");
+
+            if(existClient==null)
+            {
+                try
+                {
+                    control = _con.OpenConnection().Execute(
+                        $"INSERT INTO dbo.Client ({client.CL_IdNumber},'')");
+                }catch(Exception e)
+                {
+                    e.GetBaseException();
+                }
+            }
+            else
+            {
+
+            }
         }
 
         public int DeleteClient(int IdNumber)

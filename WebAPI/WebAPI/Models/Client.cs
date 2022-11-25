@@ -6,10 +6,16 @@
         {
 
         }
+        public int CL_IdNumber { get; set; }
 
+        public string CL_Name { get; set; }
+
+        public string CL_Surname { get; set; }
+
+        public string CL_Address { get; set; }
         public string CL_Email_Address { get; set; }
 
-        public int CL_Cell_Number { get; set; }
+        public int CL_CellNumber { get; set; }
 
         public bool CL_Gender { get; set; }
 
