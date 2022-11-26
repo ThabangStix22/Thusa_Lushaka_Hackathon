@@ -58,8 +58,14 @@ namespace WebAPI.Data
 
         public IEnumerable<Client> GetClients()
         {
-            throw new NotImplementedException();
+           IEnumerable<Client> clients = _con.OpenConnection().Query<Client>
+                 ($"SELECT * " +
+                 $"FROM dbo.Client ");
+            _con.CloseConnection();
+            return clients;
         }
+
+
 
         public int UpdateClient(Client client)
         {

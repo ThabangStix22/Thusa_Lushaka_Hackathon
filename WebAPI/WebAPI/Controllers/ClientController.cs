@@ -21,5 +21,11 @@ namespace WebAPI.Controllers
         {
             return clientRepo.GetClient(IdNumber);
         }
+
+        [HttpGet("GetAllClients")]
+        public IEnumerable<Client> GetClients()
+        {
+            return clientRepo.GetClients();
+        }
     }
 }
