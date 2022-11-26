@@ -44,7 +44,27 @@ namespace WebAPI.Data
 
         public int DeleteAdminUser(int id)
         {
-            throw new NotImplementedException();
+            int control = -2;
+            try
+            {
+                control = _con.OpenConnection().Execute
+                ($"DELETE FROM dbo.AdminUser " +
+                $"WHERE Ad_ID = {id}");
+
+            }
+            catch (Exception e)
+            {
+
+                e.GetBaseException();
+                control = -1;
+            }
+
+
+            _con.CloseConnection();
+            return control;
+        }
+
+        public Client GetClient(i
         }
 
         public AdminUser GetAdminUser(int id)

@@ -14,5 +14,10 @@ namespace WebAPI.Controllers
         {
             return admin.CreateAdminUser(adminUser);
         }
+
+        public int DeleteAdminUser(int id)
+        {
+            return admin.DeleteAdminUser(id);
+        }
     }
 }
