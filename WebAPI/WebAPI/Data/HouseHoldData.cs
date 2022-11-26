@@ -41,7 +41,12 @@ namespace WebAPI.Data
 
         public Household GetHousehold(int id)
         {
-            throw new NotImplementedException();
+            Household household = _con.OpenConnection().QueryFirstOrDefault<Household>
+                 ($"SELECT * " +
+                 $"FROM dbo.Household " +
+                 $"WHERE H_ID = {id}");
+            _con.CloseConnection();
+            return household;
         }
 
         public IEnumerable<Household> GetHouseholds()

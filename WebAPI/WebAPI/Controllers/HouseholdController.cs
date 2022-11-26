@@ -11,9 +11,16 @@ namespace WebAPI.Controllers
     {
         HouseHoldData houseHoldRepo = new HouseHoldData();
 
+        [HttpPost("CreateHouseHold")]
         public int CreateHouseHold(Household household)
         {
             return houseHoldRepo.CreateHouseHold(household);
+        }
+
+        [HttpGet("GetHouseHold/{id}")]
+        public Household GetHousehold(int id)
+        {
+            return houseHoldRepo.GetHousehold(id);
         }
 
     }
