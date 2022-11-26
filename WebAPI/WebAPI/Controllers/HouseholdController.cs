@@ -23,5 +23,10 @@ namespace WebAPI.Controllers
             return houseHoldRepo.GetHousehold(id);
         }
 
+        [HttpGet("GetAllHouseHolds")]
+        public IEnumerable<Household> GetAllHouseholds()
+        {
+            return houseHoldRepo.GetAllHouseholds();
+        }
     }
 }

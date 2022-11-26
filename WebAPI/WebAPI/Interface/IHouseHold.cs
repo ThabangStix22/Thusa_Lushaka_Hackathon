@@ -7,7 +7,7 @@ namespace WebAPI.Interface
         public int CreateHouseHold(Household household);
 
         public Household GetHousehold(int id);
-        public IEnumerable<Household> GetHouseholds();
+        public IEnumerable<Household> GetAllHouseholds();
 
         public int UpdateHouseHold(Household household);
     }

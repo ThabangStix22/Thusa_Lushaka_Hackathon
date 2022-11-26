@@ -49,9 +49,13 @@ namespace WebAPI.Data
             return household;
         }
 
-        public IEnumerable<Household> GetHouseholds()
+        public IEnumerable<Household> GetAllHouseholds()
         {
-            throw new NotImplementedException();
+            IEnumerable<Household> existHouse = _con.OpenConnection().Query<Household>
+                  ($"SELECT * " +
+                  $"FROM dbo.Household ");
+            _con.CloseConnection();
+            return existHouse;
         }
 
         public int UpdateHouseHold(Household household)
