@@ -28,6 +28,12 @@ namespace WebAPI.Controllers
             return clientRepo.GetClients();
         }
 
+        [HttpPut("UpdateClient")]
+        public int UpdateClient(Client client)
+        {
+            return clientRepo.UpdateClient(client);
+        }
+
         [HttpDelete("DeleteClient")]
         public int DeleteClient(int IdNumber)
         {
