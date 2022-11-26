@@ -33,6 +33,8 @@ namespace WebAPI.Models
 
         public int CL_Id_Number { get; set; }
 
+        public int H_Status { get; set; }
+
 
     }
 
