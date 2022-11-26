@@ -64,17 +64,25 @@ namespace WebAPI.Data
             return control;
         }
 
-        public Client GetClient(i
-        }
+        
 
         public AdminUser GetAdminUser(int id)
         {
-            throw new NotImplementedException();
+            AdminUser adminUser = _con.OpenConnection().QueryFirstOrDefault<AdminUser>
+                 ($"SELECT * " +
+                 $"FROM dbo.AdminUser " +
+                 $"WHERE Ad_ID = {id}");
+            _con.CloseConnection();
+            return adminUser;
         }
 
         public IEnumerable<AdminUser> GetAdminUsers()
         {
-            throw new NotImplementedException();
+            IEnumerable<AdminUser> adminUsers = _con.OpenConnection().Query<AdminUser>
+                  ($"SELECT * " +
+                  $"FROM dbo.AdminUser ");
+            _con.CloseConnection();
+            return adminUsers;
         }
     }
 }

@@ -16,7 +16,7 @@ namespace WebAPI.Controllers
             return clientRepo.CreateClient(client);
         }
 
-        [HttpGet("GetClient")]
+        [HttpGet("GetClient/{IdNumber}")]
         public Client GetClient(int IdNumber)
         {
             return clientRepo.GetClient(IdNumber);
