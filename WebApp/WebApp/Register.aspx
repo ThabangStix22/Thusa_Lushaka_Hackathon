@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="Register" Language="C#" MasterPageFile="~/Sign.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="WebApp.Register" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="FormContentHolder" runat="server">
-    <form runat="server">
+    
         <div class="register-box">
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
@@ -20,7 +20,7 @@
         </div>
           
           <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Surname">
+          <input type="text" class="form-control" placeholder="Surname" ">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -29,7 +29,7 @@
         </div>
 
          <div class="input-group mb-3">
-          <input type="number" class="form-control" placeholder="13-digit ID Number">
+          <input type="number" class="form-control" placeholder="13-digit ID Number" maxlength="13" minlength="13" >
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -47,7 +47,8 @@
         </div> 
           
           <div class="input-group mb-3">
-          <input type="tel" class="form-control" placeholder="Contact number (e.g. 07123456789)">
+          <input type="tel" class="form-control" placeholder="Contact number (e.g. 07123456789)"
+              maxlength="10">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -87,12 +88,12 @@
       
       </div>
 
-      <a href="#" class="text-center">I already have an account</a>
+      <a href="Login.aspx" class="text-center">I already have an account</a>
     </div>
     <!-- /.form-box -->
   </div><!-- /.card -->
 </div>
 <!-- /.register-box -->
 
- </form>
+
 </asp:Content>
