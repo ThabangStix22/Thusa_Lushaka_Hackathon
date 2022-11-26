@@ -24,7 +24,7 @@ namespace WebAPI.Data
                     control = _con.OpenConnection().Execute(
                         $"INSERT INTO dbo.Client VALUES ({client.CL_IdNumber},'{client.CL_Name}','{client.CL_Surname}'" +
                         $",'{client.CL_Address}','{client.CL_EmailAddress}',{client.CL_CellNumber},{client.CL_Gender}" +
-                        $",'{client.CL_Affidavit}','{Encrypt.HashString(client.CL_Password)}','{client.CL_Role}')",client);
+                        $",'{client.CL_Affidavit}','{Encrypt.HashString(client.CL_Password)}','Applicant')",client);
                 }catch(Exception e)
                 {
                     e.GetBaseException();
