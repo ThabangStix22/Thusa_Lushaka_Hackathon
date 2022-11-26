@@ -7,7 +7,7 @@ namespace WebAPI.Interface
         //CRUD
         public int CreateClient(Client client);
 
-        public int GetClient(int IdNumber);
+        public Client GetClient(int IdNumber);
         public IEnumerable<Client> GetClients();
 
         public int UpdateClient(Client client);

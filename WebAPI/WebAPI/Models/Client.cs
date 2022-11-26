@@ -13,11 +13,11 @@
         public string CL_Surname { get; set; }
 
         public string CL_Address { get; set; }
-        public string CL_Email_Address { get; set; }
+        public string CL_EmailAddress { get; set; }
 
         public int CL_CellNumber { get; set; }
 
-        public bool CL_Gender { get; set; }
+        public int CL_Gender { get; set; }
 
         public string CL_Affidavit { get; set; }
 

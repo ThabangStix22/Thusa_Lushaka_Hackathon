@@ -13,25 +13,32 @@ namespace WebAPI.Data
 
             Client existClient = _con.OpenConnection().QueryFirstOrDefault<Client>(
                 $"SELECT * " +
-                $"FROM dbo.Client" +
+                $"FROM dbo.Client " +
                 $"WHERE CL_IdNumber = {client.CL_IdNumber} ");
+
 
             if(existClient==null)
             {
                 try
                 {
                     control = _con.OpenConnection().Execute(
-                        $"INSERT INTO dbo.Client ({client.CL_IdNumber},'')");
+                        $"INSERT INTO dbo.Client VALUES ({client.CL_IdNumber},'{client.CL_Name}','{client.CL_Surname}'" +
+                        $",'{client.CL_Address}','{client.CL_EmailAddress}',{client.CL_CellNumber},{client.CL_Gender}" +
+                        $",'{client.CL_Affidavit}','{Encrypt.HashString(client.CL_Password)}','{client.CL_Role}')");
                 }catch(Exception e)
                 {
                     e.GetBaseException();
+                    control = -1;
                 }
             }
-            else
+            else if(existClient != null)
             {
-
-
+                control = 0;
             }
+
+            _con.CloseConnection();
+            return control;
+
         }
 
         public int DeleteClient(int IdNumber)
@@ -39,9 +46,14 @@ namespace WebAPI.Data
             throw new NotImplementedException();
         }
 
-        public int GetClient(int IdNumber)
+        public Client GetClient(int IdNumber)
         {
-            throw new NotImplementedException();
+            Client client = _con.OpenConnection().QueryFirstOrDefault<Client>
+                 ($"SELECT * " +
+                 $"FROM dbo.Client " +
+                 $"WHERE CL_IdNumber = {IdNumber}");
+            _con.CloseConnection();
+            return client;
         }
 
         public IEnumerable<Client> GetClients()
