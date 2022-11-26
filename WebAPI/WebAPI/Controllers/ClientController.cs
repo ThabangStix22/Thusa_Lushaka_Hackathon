@@ -27,5 +27,11 @@ namespace WebAPI.Controllers
         {
             return clientRepo.GetClients();
         }
+
+        [HttpDelete("DeleteClient")]
+        public int DeleteClient(int IdNumber)
+        {
+            return clientRepo.DeleteClient(IdNumber);
+        }
     }
 }
